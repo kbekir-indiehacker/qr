@@ -1,0 +1,119 @@
+{
+  "@@locale": "en",
+  "appTitle": "Business Card App",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "businessCard": "Business Card",
+  "@businessCard": {
+    "description": "Business card label"
+  },
+  "createCard": "Create Card",
+  "@createCard": {
+    "description": "Create new business card button"
+  },
+  "scanCard": "Scan Card",
+  "@scanCard": {
+    "description": "Scan business card button"
+  },
+  "myCards": "My Cards",
+  "@myCards": {
+    "description": "My cards page title"
+  },
+  "contacts": "Contacts",
+  "@contacts": {
+    "description": "Contacts page title"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  "name": "Name",
+  "@name": {
+    "description": "Name field label"
+  },
+  "company": "Company",
+  "@company": {
+    "description": "Company field label"
+  },
+  "position": "Position",
+  "@position": {
+    "description": "Position field label"
+  },
+  "phone": "Phone",
+  "@phone": {
+    "description": "Phone field label"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email field label"
+  },
+  "website": "Website",
+  "@website": {
+    "description": "Website field label"
+  },
+  "address": "Address",
+  "@address": {
+    "description": "Address field label"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button"
+  },
+  "share": "Share",
+  "@share": {
+    "description": "Share button"
+  },
+  "qrCode": "QR Code",
+  "@qrCode": {
+    "description": "QR Code label"
+  },
+  "generateQR": "Generate QR",
+  "@generateQR": {
+    "description": "Generate QR code button"
+  },
+  "scanQR": "Scan QR",
+  "@scanQR": {
+    "description": "Scan QR code button"
+  },
+  "nfcShare": "NFC Share",
+  "@nfcShare": {
+    "description": "NFC share feature"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Dark mode setting"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language setting"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile page title"
+  },
+  "about": "About",
+  "@about": {
+    "description": "About page title"
+  },
+  "version": "Version",
+  "@version": {
+    "description": "App version label"
+  }
+}
