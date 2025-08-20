@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/models/contact.dart';
 import '../../data/repositories/contact_repository.dart';
@@ -101,7 +102,7 @@ class ContactsNotifier extends StateNotifier<AsyncValue<List<Contact>>> {
     try {
       return await _contactRepository.searchContacts(query);
     } catch (error) {
-      throw error;
+      rethrow;
     }
   }
 
@@ -109,7 +110,15 @@ class ContactsNotifier extends StateNotifier<AsyncValue<List<Contact>>> {
     try {
       return await _contactRepository.getStarredContacts();
     } catch (error) {
-      throw error;
+      rethrow;
+    }
+  }
+
+  Future<Contact?> getContactById(int id) async {
+    try {
+      return await _contactRepository.getContactById(id);
+    } catch (error) {
+      return null;
     }
   }
 }
@@ -179,6 +188,9 @@ final userProvider = StateNotifierProvider<UserNotifier, AsyncValue<UserData>>((
   return UserNotifier(userRepository);
 });
 
+// Alias for compatibility
+final userDataProvider = userProvider;
+
 // Settings State Notifier
 class SettingsNotifier extends StateNotifier<AsyncValue<AppSettings>> {
   final SettingsRepository _settingsRepository;
@@ -217,9 +229,13 @@ class SettingsNotifier extends StateNotifier<AsyncValue<AppSettings>> {
 
   Future<void> updateLanguage(String language) async {
     try {
+      print('🔥 SettingsNotifier.updateLanguage called with: $language');
       await _settingsRepository.updateLanguage(language);
+      print('🔥 updateLanguage completed, reloading settings...');
       await loadSettings(); // Refresh settings
+      print('🔥 Settings reloaded, new state: ${state.value?.language}');
     } catch (error, stackTrace) {
+      print('🔥 updateLanguage ERROR: $error');
       state = AsyncValue.error(error, stackTrace);
     }
   }
@@ -441,4 +457,51 @@ final contactViewModeProvider = Provider<String>((ref) {
     loading: () => 'grid',
     error: (_, __) => 'grid',
   );
+});
+
+// Locale Provider (derived from settings) - simpler approach
+final localeProvider = Provider<Locale>((ref) {
+  final settingsState = ref.watch(settingsProvider);
+  return settingsState.when(
+    data: (settings) {
+      final locale = switch (settings.language) {
+        'tr' => const Locale('tr', 'TR'),
+        'en' => const Locale('en', 'US'),
+        _ => const Locale('tr', 'TR'),
+      };
+      print('🌍 Locale provider returning: ${locale.languageCode}');
+      return locale;
+    },
+    loading: () => const Locale('tr', 'TR'),
+    error: (_, __) => const Locale('tr', 'TR'),
+  );
+});
+
+// Theme Data Provider (derived from settings)
+final themeDataProvider = Provider<ThemeData>((ref) {
+  final settingsState = ref.watch(settingsProvider);
+  final themeMode = settingsState.when(
+    data: (settings) => settings.themeMode,
+    loading: () => 'system',
+    error: (_, __) => 'system',
+  );
+  
+  final brightness = switch (themeMode) {
+    'light' => Brightness.light,
+    'dark' => Brightness.dark,
+    'system' => WidgetsBinding.instance.platformDispatcher.platformBrightness,
+    _ => Brightness.light,
+  };
+  
+  return brightness == Brightness.dark
+      ? ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        )
+      : ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        );
 });

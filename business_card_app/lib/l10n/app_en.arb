@@ -115,5 +115,185 @@
   "version": "Version",
   "@version": {
     "description": "App version label"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Theme setting"
+  },
+  "contactView": "Contact View",
+  "@contactView": {
+    "description": "Contact view setting"
+  },
+  "defaultSorting": "Default Sorting",
+  "@defaultSorting": {
+    "description": "Default sorting setting"
+  },
+  "appSettings": "App Settings",
+  "@appSettings": {
+    "description": "App settings section"
+  },
+  "dataManagement": "Data Management",
+  "@dataManagement": {
+    "description": "Data management section"
+  },
+  "createBackup": "Create Backup",
+  "@createBackup": {
+    "description": "Create backup button"
+  },
+  "backupAllData": "Backup all your data",
+  "@backupAllData": {
+    "description": "Backup all data subtitle"
+  },
+  "restoreFromBackup": "Restore from Backup",
+  "@restoreFromBackup": {
+    "description": "Restore from backup button"
+  },
+  "restorePrevious": "Restore from previous backup",
+  "@restorePrevious": {
+    "description": "Restore previous backup subtitle"
+  },
+  "exportData": "Export Data",
+  "@exportData": {
+    "description": "Export data button"
+  },
+  "exportJsonCsv": "Export in JSON/CSV format",
+  "@exportJsonCsv": {
+    "description": "Export JSON/CSV subtitle"
+  },
+  "importData": "Import Data",
+  "@importData": {
+    "description": "Import data button"
+  },
+  "importFromFile": "Import data from file",
+  "@importFromFile": {
+    "description": "Import from file subtitle"
+  },
+  "deleteAllData": "Delete All Data",
+  "@deleteAllData": {
+    "description": "Delete all data button"
+  },
+  "irreversibleAction": "This action cannot be undone",
+  "@irreversibleAction": {
+    "description": "Irreversible action warning"
+  },
+  "user": "User",
+  "@user": {
+    "description": "Default user name"
+  },
+  "premiumMember": "Premium Member",
+  "@premiumMember": {
+    "description": "Premium member status"
+  },
+  "freeVersion": "Free Version",
+  "@freeVersion": {
+    "description": "Free version status"
+  },
+  "allFeaturesAccess": "You have access to all features",
+  "@allFeaturesAccess": {
+    "description": "Premium features message"
+  },
+  "upgradeToPremium": "Upgrade to premium and use all features",
+  "@upgradeToPremium": {
+    "description": "Upgrade to premium message"
+  },
+  "upgrade": "Upgrade",
+  "@upgrade": {
+    "description": "Upgrade button"
+  },
+  "premiumFeatures": "Premium Features:",
+  "@premiumFeatures": {
+    "description": "Premium features title"
+  },
+  "unlimitedContacts": "Unlimited contact addition",
+  "@unlimitedContacts": {
+    "description": "Unlimited contacts feature"
+  },
+  "unlimitedQrCodes": "Unlimited QR code generation",
+  "@unlimitedQrCodes": {
+    "description": "Unlimited QR codes feature"
+  },
+  "unlimitedOcr": "Unlimited OCR scanning",
+  "@unlimitedOcr": {
+    "description": "Unlimited OCR feature"
+  },
+  "automaticBackup": "Automatic backup",
+  "@automaticBackup": {
+    "description": "Automatic backup feature"
+  },
+  "selectTheme": "Select Theme",
+  "@selectTheme": {
+    "description": "Select theme dialog title"
+  },
+  "light": "Light",
+  "@light": {
+    "description": "Light theme option"
+  },
+  "dark": "Dark",
+  "@dark": {
+    "description": "Dark theme option"
+  },
+  "system": "System",
+  "@system": {
+    "description": "System theme option"
+  },
+  "selectView": "Select View",
+  "@selectView": {
+    "description": "Select view dialog title"
+  },
+  "list": "List",
+  "@list": {
+    "description": "List view option"
+  },
+  "grid": "Grid",
+  "@grid": {
+    "description": "Grid view option"
+  },
+  "selectSorting": "Select Sorting",
+  "@selectSorting": {
+    "description": "Select sorting dialog title"
+  },
+  "date": "Date",
+  "@date": {
+    "description": "Date sorting option"
+  },
+  "deleteAllDataTitle": "Delete All Data",
+  "@deleteAllDataTitle": {
+    "description": "Delete all data dialog title"
+  },
+  "deleteAllDataMessage": "This action will delete all your contacts and settings. This action cannot be undone. Are you sure you want to continue?",
+  "@deleteAllDataMessage": {
+    "description": "Delete all data confirmation message"
+  },
+  "appVersion": "App Version",
+  "@appVersion": {
+    "description": "App version label"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Privacy policy label"
+  },
+  "termsOfService": "Terms of Service",
+  "@termsOfService": {
+    "description": "Terms of service label"
+  },
+  "helpSupport": "Help & Support",
+  "@helpSupport": {
+    "description": "Help and support label"
+  },
+  "rateApp": "Rate the App",
+  "@rateApp": {
+    "description": "Rate app label"
+  },
+  "tryAgain": "Try Again",
+  "@tryAgain": {
+    "description": "Try again button"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Error label"
+  },
+  "creatingBackup": "Creating backup...",
+  "@creatingBackup": {
+    "description": "Creating backup message"
   }
 }

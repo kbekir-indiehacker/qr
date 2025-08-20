@@ -36,7 +36,7 @@ class LocalStorage {
 
   Future<String> getLanguage() async {
     final preferences = await prefs;
-    return preferences.getString('language') ?? 'en';
+    return preferences.getString('language') ?? 'tr';
   }
 
   // Sort order preferences

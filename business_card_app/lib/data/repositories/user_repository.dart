@@ -4,6 +4,10 @@ import '../datasources/database_helper.dart';
 class UserData {
   final String name;
   final String email;
+  final String? phone;
+  final String? company;
+  final String? title;
+  final String? website;
   final bool isPremium;
   final DateTime? premiumExpiryDate;
   final bool isFirstLaunch;
@@ -13,6 +17,10 @@ class UserData {
   UserData({
     required this.name,
     required this.email,
+    this.phone,
+    this.company,
+    this.title,
+    this.website,
     required this.isPremium,
     this.premiumExpiryDate,
     required this.isFirstLaunch,
@@ -23,6 +31,10 @@ class UserData {
   UserData copyWith({
     String? name,
     String? email,
+    String? phone,
+    String? company,
+    String? title,
+    String? website,
     bool? isPremium,
     DateTime? premiumExpiryDate,
     bool? isFirstLaunch,
@@ -32,6 +44,10 @@ class UserData {
     return UserData(
       name: name ?? this.name,
       email: email ?? this.email,
+      phone: phone ?? this.phone,
+      company: company ?? this.company,
+      title: title ?? this.title,
+      website: website ?? this.website,
       isPremium: isPremium ?? this.isPremium,
       premiumExpiryDate: premiumExpiryDate ?? this.premiumExpiryDate,
       isFirstLaunch: isFirstLaunch ?? this.isFirstLaunch,
@@ -44,6 +60,10 @@ class UserData {
     return {
       'name': name,
       'email': email,
+      'phone': phone,
+      'company': company,
+      'title': title,
+      'website': website,
       'isPremium': isPremium,
       'premiumExpiryDate': premiumExpiryDate?.toIso8601String(),
       'isFirstLaunch': isFirstLaunch,
@@ -56,6 +76,10 @@ class UserData {
     return UserData(
       name: json['name'] ?? '',
       email: json['email'] ?? '',
+      phone: json['phone'],
+      company: json['company'],
+      title: json['title'],
+      website: json['website'],
       isPremium: json['isPremium'] ?? false,
       premiumExpiryDate: json['premiumExpiryDate'] != null
           ? DateTime.parse(json['premiumExpiryDate'])
@@ -91,13 +115,24 @@ class UserRepository implements UserRepositoryInterface {
   @override
   Future<UserData> getUserData() async {
     try {
-      final name = await _getUserName();
-      final email = await _getUserEmail();
+      var name = await _getUserName();
+      var email = await _getUserEmail();
       final isPremium = await _localStorage.getPremiumStatus();
       final premiumExpiryDate = await _localStorage.getPremiumExpiryDate();
       final isFirstLaunch = await _localStorage.isFirstLaunch();
       final tutorialCompleted = await _localStorage.isTutorialCompleted();
       final appVersion = await _localStorage.getAppVersion() ?? '1.0.0';
+
+      // İlk kez çalıştırılıyorsa örnek veri ekle
+      if (name.isEmpty) {
+        name = 'Kullanıcı';
+        await _setUserName(name);
+      }
+      
+      if (email.isEmpty) {
+        email = 'kullanici@example.com';
+        await _setUserEmail(email);
+      }
 
       return UserData(
         name: name,
@@ -243,7 +278,8 @@ class UserRepository implements UserRepositoryInterface {
   // User profile methods
   Future<String> _getUserName() async {
     try {
-      return await _databaseHelper.getSetting<String>('user_name') ?? '';
+      final preferences = await _localStorage.prefs;
+      return preferences.getString('user_name') ?? '';
     } catch (e) {
       return '';
     }
@@ -251,7 +287,8 @@ class UserRepository implements UserRepositoryInterface {
 
   Future<void> _setUserName(String name) async {
     try {
-      await _databaseHelper.setSetting('user_name', name, 'string');
+      final preferences = await _localStorage.prefs;
+      await preferences.setString('user_name', name);
     } catch (e) {
       throw UserRepositoryException('Kullanıcı adı güncellenirken hata oluştu: $e');
     }
@@ -259,7 +296,8 @@ class UserRepository implements UserRepositoryInterface {
 
   Future<String> _getUserEmail() async {
     try {
-      return await _databaseHelper.getSetting<String>('user_email') ?? '';
+      final preferences = await _localStorage.prefs;
+      return preferences.getString('user_email') ?? '';
     } catch (e) {
       return '';
     }
@@ -275,7 +313,8 @@ class UserRepository implements UserRepositoryInterface {
         }
       }
       
-      await _databaseHelper.setSetting('user_email', email, 'string');
+      final preferences = await _localStorage.prefs;
+      await preferences.setString('user_email', email);
     } catch (e) {
       if (e is UserRepositoryException) rethrow;
       throw UserRepositoryException('E-posta güncellenirken hata oluştu: $e');

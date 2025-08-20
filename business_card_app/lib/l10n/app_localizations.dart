@@ -271,6 +271,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Version'**
   String get version;
+
+  /// Theme setting
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// Contact view setting
+  ///
+  /// In en, this message translates to:
+  /// **'Contact View'**
+  String get contactView;
+
+  /// Default sorting setting
+  ///
+  /// In en, this message translates to:
+  /// **'Default Sorting'**
+  String get defaultSorting;
+
+  /// App settings section
+  ///
+  /// In en, this message translates to:
+  /// **'App Settings'**
+  String get appSettings;
+
+  /// Data management section
+  ///
+  /// In en, this message translates to:
+  /// **'Data Management'**
+  String get dataManagement;
+
+  /// Create backup button
+  ///
+  /// In en, this message translates to:
+  /// **'Create Backup'**
+  String get createBackup;
+
+  /// Backup all data subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Backup all your data'**
+  String get backupAllData;
+
+  /// Restore from backup button
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from Backup'**
+  String get restoreFromBackup;
+
+  /// Restore previous backup subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from previous backup'**
+  String get restorePrevious;
+
+  /// Export data button
+  ///
+  /// In en, this message translates to:
+  /// **'Export Data'**
+  String get exportData;
+
+  /// Export JSON/CSV subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Export in JSON/CSV format'**
+  String get exportJsonCsv;
+
+  /// Import data button
+  ///
+  /// In en, this message translates to:
+  /// **'Import Data'**
+  String get importData;
+
+  /// Import from file subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Import data from file'**
+  String get importFromFile;
+
+  /// Delete all data button
+  ///
+  /// In en, this message translates to:
+  /// **'Delete All Data'**
+  String get deleteAllData;
+
+  /// Irreversible action warning
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone'**
+  String get irreversibleAction;
+
+  /// Default user name
+  ///
+  /// In en, this message translates to:
+  /// **'User'**
+  String get user;
+
+  /// Premium member status
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Member'**
+  String get premiumMember;
+
+  /// Free version status
+  ///
+  /// In en, this message translates to:
+  /// **'Free Version'**
+  String get freeVersion;
+
+  /// Premium features message
+  ///
+  /// In en, this message translates to:
+  /// **'You have access to all features'**
+  String get allFeaturesAccess;
+
+  /// Upgrade to premium message
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to premium and use all features'**
+  String get upgradeToPremium;
+
+  /// Upgrade button
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade'**
+  String get upgrade;
+
+  /// Premium features title
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Features:'**
+  String get premiumFeatures;
+
+  /// Unlimited contacts feature
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited contact addition'**
+  String get unlimitedContacts;
+
+  /// Unlimited QR codes feature
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited QR code generation'**
+  String get unlimitedQrCodes;
+
+  /// Unlimited OCR feature
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited OCR scanning'**
+  String get unlimitedOcr;
+
+  /// Automatic backup feature
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic backup'**
+  String get automaticBackup;
+
+  /// Select theme dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Select Theme'**
+  String get selectTheme;
+
+  /// Light theme option
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light;
+
+  /// Dark theme option
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark;
+
+  /// System theme option
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get system;
+
+  /// Select view dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Select View'**
+  String get selectView;
+
+  /// List view option
+  ///
+  /// In en, this message translates to:
+  /// **'List'**
+  String get list;
+
+  /// Grid view option
+  ///
+  /// In en, this message translates to:
+  /// **'Grid'**
+  String get grid;
+
+  /// Select sorting dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Select Sorting'**
+  String get selectSorting;
+
+  /// Date sorting option
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get date;
+
+  /// Delete all data dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Delete All Data'**
+  String get deleteAllDataTitle;
+
+  /// Delete all data confirmation message
+  ///
+  /// In en, this message translates to:
+  /// **'This action will delete all your contacts and settings. This action cannot be undone. Are you sure you want to continue?'**
+  String get deleteAllDataMessage;
+
+  /// App version label
+  ///
+  /// In en, this message translates to:
+  /// **'App Version'**
+  String get appVersion;
+
+  /// Privacy policy label
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// Terms of service label
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Service'**
+  String get termsOfService;
+
+  /// Help and support label
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpSupport;
+
+  /// Rate app label
+  ///
+  /// In en, this message translates to:
+  /// **'Rate the App'**
+  String get rateApp;
+
+  /// Try again button
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// Error label
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// Creating backup message
+  ///
+  /// In en, this message translates to:
+  /// **'Creating backup...'**
+  String get creatingBackup;
 }
 
 class _AppLocalizationsDelegate

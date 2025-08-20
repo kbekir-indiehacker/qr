@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'core/themes/app_theme.dart';
-import 'presentation/screens/home_screen.dart';
-import 'presentation/providers/language_provider.dart';
+import 'presentation/screens/main_screen.dart';
+import 'presentation/providers/data_providers.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {
@@ -15,26 +13,16 @@ class BusinessCardApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final locale = ref.watch(languageProvider);
+    final locale = ref.watch(localeProvider);
+    final theme = ref.watch(themeDataProvider);
     
     return MaterialApp(
       title: 'Business Card App',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      theme: theme,
       locale: locale,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('tr', ''),
-      ],
-      home: const HomeScreen(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const MainScreen(),
     );
   }
 }
-

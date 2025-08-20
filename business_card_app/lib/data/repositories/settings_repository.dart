@@ -71,7 +71,7 @@ class AppSettings {
   factory AppSettings.fromJson(Map<String, dynamic> json) {
     return AppSettings(
       themeMode: json['themeMode'] ?? 'system',
-      language: json['language'] ?? 'en',
+      language: json['language'] ?? 'tr',
       sortOrder: json['sortOrder'] ?? DatabaseConstants.sortByName,
       contactViewMode: json['contactViewMode'] ?? 'grid',
       autoBackup: json['autoBackup'] ?? true,

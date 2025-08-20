@@ -52,6 +52,18 @@ dependencies:
   
   # Local Storage
   shared_preferences: ^2.2.0
+  
+  # URL Launcher
+  url_launcher: ^6.2.6
+  
+  # Share Plus
+  share_plus: ^9.0.0
+  
+  # Path Provider
+  path: ^1.8.3
+  
+  # Text Recognition (OCR) - Tesseract based, no build issues!
+  flutter_tesseract_ocr: ^0.4.25
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +75,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  
+  # Testing
+  mockito: ^5.4.0
+  build_runner: ^2.4.7
+  
+  # Database testing
+  sqflite_common_ffi: ^2.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../l10n/app_localizations.dart';
-import '../providers/language_provider.dart';
+import '../providers/data_providers.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -9,8 +9,12 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final languageNotifier = ref.read(languageProvider.notifier);
-    final currentLanguage = ref.watch(languageProvider);
+    final settingsState = ref.watch(settingsProvider);
+    final currentLangCode = settingsState.when(
+      data: (s) => s.language,
+      loading: () => 'tr',
+      error: (_, __) => 'tr',
+    );
     
     return Scaffold(
       appBar: AppBar(
@@ -21,11 +25,12 @@ class HomeScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 8.0),
             child: TextButton.icon(
               onPressed: () {
-                languageNotifier.toggleLanguage();
+                final next = currentLangCode == 'en' ? 'tr' : 'en';
+                ref.read(settingsProvider.notifier).updateLanguage(next);
               },
               icon: const Icon(Icons.language),
               label: Text(
-                currentLanguage.languageCode == 'en' ? 'TR' : 'EN',
+                currentLangCode == 'en' ? 'TR' : 'EN',
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
@@ -88,11 +93,12 @@ class HomeScreen extends ConsumerWidget {
             // Dil test butonu
             ElevatedButton.icon(
               onPressed: () {
-                languageNotifier.toggleLanguage();
+                final next = currentLangCode == 'en' ? 'tr' : 'en';
+                ref.read(settingsProvider.notifier).updateLanguage(next);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Language switched to ${currentLanguage.languageCode == 'en' ? 'Turkish' : 'English'}',
+                      'Language switched to ${currentLangCode == 'en' ? 'Turkish' : 'English'}',
                     ),
                     duration: const Duration(seconds: 2),
                   ),
@@ -100,7 +106,7 @@ class HomeScreen extends ConsumerWidget {
               },
               icon: const Icon(Icons.translate),
               label: Text(
-                '${l10n.language}: ${currentLanguage.languageCode == 'en' ? 'English' : 'Türkçe'}',
+                '${l10n.language}: ${currentLangCode == 'en' ? 'English' : 'Türkçe'}',
               ),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
